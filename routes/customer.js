@@ -24,7 +24,7 @@ router.post('/add', (req, res) => {
 		});
 });
 
-router.get('/', (req, res) => {
+router.get('/list', (req, res) => {
 	Customer.find()
 		.then((cx) => {
 			if (!cx) {
