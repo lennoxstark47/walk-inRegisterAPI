@@ -4,7 +4,7 @@
   "description": "A restful API for CRUD operations in a Walk-In Register React App",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Twisam",
   "license": "MIT",
