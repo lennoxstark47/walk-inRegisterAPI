@@ -40,8 +40,8 @@ router.get('/', (req, res) => {
 		});
 });
 
-router.get('/getbyphone', (req, res) => {
-	Customer.findOne({ phone: req.body.phone })
+router.get('/getbyphone/:phone', (req, res) => {
+	Customer.findOne({ phone: req.params.phone })
 		.then((cx) => {
 			if (!cx) {
 				res
