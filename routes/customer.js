@@ -72,4 +72,16 @@ router.get('/getbyname', (req, res) => {
 		});
 });
 
+router.put('/:id', (req, res) => {
+	Customer.findByIdAndUpdate(req.params.id, {
+		$set: req.body,
+	})
+		.then((response) => {
+			res.send('Successfully updated');
+		})
+		.catch((err) => {
+			res.status(500).json({ err });
+		});
+});
+
 module.exports = router;

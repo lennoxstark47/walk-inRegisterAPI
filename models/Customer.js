@@ -23,6 +23,14 @@ const customerSchema = new Schema(
 			required: true,
 			max: 6,
 		},
+		remarks: {
+			type: String,
+			max: 50,
+		},
+		isConverted: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	{ timestamps: true }
 );
