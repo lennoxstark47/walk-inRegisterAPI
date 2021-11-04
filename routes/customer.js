@@ -74,7 +74,8 @@ router.get('/getbyname', (req, res) => {
 
 router.put('/:id', (req, res) => {
 	Customer.findByIdAndUpdate(req.params.id, {
-		$set: req.body,
+		remarks: req.body.remarks,
+		isConverted: req.body.isConverted,
 	})
 		.then((response) => {
 			res.send('Successfully updated');
