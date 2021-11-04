@@ -85,4 +85,14 @@ router.put('/:id', (req, res) => {
 		});
 });
 
+router.get('/:id', (req, res) => {
+	Customer.findById(req.params.id)
+		.then((cx) => {
+			res.send(cx);
+		})
+		.catch((err) => {
+			res.status(500).json(err);
+		});
+});
+
 module.exports = router;
