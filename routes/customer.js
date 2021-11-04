@@ -95,4 +95,25 @@ router.get('/:id', (req, res) => {
 		});
 });
 
+router.post('/getByDate', (req, res) => {
+	Customer.find({
+		createdAt: {
+			$gt: req.body.min,
+			$lt: req.body.max,
+		},
+	})
+		.then((cx) => {
+			if (!cx) {
+				res
+					.status(400)
+					.send('Error getting customer');
+			} else {
+				res.send(cx);
+			}
+		})
+		.catch((err) => {
+			res.status(500).json({ err });
+		});
+});
+
 module.exports = router;
