@@ -116,4 +116,24 @@ router.post('/getByDate', (req, res) => {
 		});
 });
 
+router.get('/get/allconverted', (req, res) => {
+	Customer.find({ isConverted: true })
+		.then((respnse) => {
+			res.send(respnse);
+		})
+		.catch((err) => {
+			res.status(500).json({ err });
+		});
+});
+
+router.get('/get/nonconverted', (req, res) => {
+	Customer.find({ isConverted: false })
+		.then((response) => {
+			res.send(response);
+		})
+		.catch((err) => {
+			res.status(500).json({ err });
+		});
+});
+
 module.exports = router;
