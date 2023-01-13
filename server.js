@@ -14,9 +14,13 @@ app.use('/api/customer', customerRouter);
 mongoose
 	.connect(process.env.MONGO_URI)
 	.then((data) => {
-		console.log(
-			'MongoDb connected successfully....'
-		);
+		if(data) {
+
+			console.log(
+				'MongoDb connected successfully....'
+			);
+			// console.log(data);
+		}
 	})
 	.catch((err) => {
 		console.log(err);
